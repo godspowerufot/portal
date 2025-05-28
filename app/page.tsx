@@ -36,7 +36,7 @@ export default function LandingPage() {
             </nav>
             <div className="flex items-center space-x-3">
               <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
-             <Link href={"/Login"}>Login</Link>   
+             <Link href={"/login"}>Login</Link>   
               </Button>
               <Button className="bg-darkGreen hover:bg-green-700 text-white">
                 
@@ -70,7 +70,7 @@ export default function LandingPage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=500&width=600"
+                src="/nursing.jpg"
                 alt="Nursing students in clinical practice"
                 width={600}
                 height={500}

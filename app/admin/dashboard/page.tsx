@@ -1,4 +1,4 @@
-"use client"  // Ensure this is client component (if using Next.js app router)
+"use client"
 
 import React, { useEffect, useState } from "react"
 import { DashboardLayout } from "@/components/dashboard-layout"
@@ -14,30 +14,59 @@ interface Student {
   fullName: string
   email: string
   createdAt: string
-  // add other fields if needed
+}
+
+interface Payment {
+  id: string
+  userId: string
+  courseId: string
+  amount: number
+  createdAt: string
+   invoiceId:string
+   description: string
+  reference: string
+  courseTitle?: string // optional enrichment
 }
 
 export default function AdminDashboardPage() {
   const [students, setStudents] = useState<Student[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [payments, setPayments] = useState<Payment[]>([])
+  const [loadingStudents, setLoadingStudents] = useState(true)
+  const [loadingPayments, setLoadingPayments] = useState(true)
+  const [studentError, setStudentError] = useState<string | null>(null)
+  const [paymentError, setPaymentError] = useState<string | null>(null)
 
   useEffect(() => {
     async function fetchStudents() {
       try {
         const res = await fetch("/api/admin/students")
-        if (!res.ok) {
-          throw new Error("Failed to fetch students")
-        }
+        if (!res.ok) throw new Error("Failed to fetch students")
         const data: Student[] = await res.json()
         setStudents(data)
       } catch (err) {
-        setError((err as Error).message)
+        setStudentError((err as Error).message)
       } finally {
-        setLoading(false)
+        setLoadingStudents(false)
       }
     }
+
+  async function fetchPayments() {
+  try {
+    const res = await fetch("/api/admin/payments", {
+      method: "GET",
+    })
+    if (!res.ok) throw new Error("Failed to fetch payments")
+    const data: Payment[] = await res.json()
+    setPayments(data)
+  } catch (err) {
+    setPaymentError((err as Error).message)
+  } finally {
+    setLoadingPayments(false)
+  }
+}
+
     fetchStudents()
+    fetchPayments()
   }, [])
 
   return (
@@ -47,8 +76,6 @@ export default function AdminDashboardPage() {
           <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
           <p className="text-gray-500">Overview of the student portal system</p>
         </div>
-
-        {/* ... Cards section unchanged ... */}
 
         <Tabs defaultValue="students" className="space-y-6">
           <TabsList className="bg-gray-100">
@@ -67,10 +94,10 @@ export default function AdminDashboardPage() {
                 <CardDescription>Students who recently joined the platform</CardDescription>
               </CardHeader>
               <CardContent>
-                {loading ? (
+                {loadingStudents ? (
                   <p>Loading students...</p>
-                ) : error ? (
-                  <p className="text-red-500">Error: {error}</p>
+                ) : studentError ? (
+                  <p className="text-red-500">Error: {studentError}</p>
                 ) : (
                   <Table>
                     <TableHeader>
@@ -108,8 +135,44 @@ export default function AdminDashboardPage() {
             </Card>
           </TabsContent>
 
-          {/* Payments tab remains unchanged */}
-          {/* ... */}
+          <TabsContent value="payments">
+            <Card className="border-black/10">
+              <CardHeader>
+                <CardTitle>Recent Payments</CardTitle>
+                <CardDescription>Track form purchases and course payments</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {loadingPayments ? (
+                  <p>Loading payments...</p>
+                ) : paymentError ? (
+                  <p className="text-red-500">Error: {paymentError}</p>
+                ) : (
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Reference</TableHead>
+                        <TableHead>User ID</TableHead>
+                        <TableHead>Description</TableHead>
+                        <TableHead>Amount</TableHead>
+                        <TableHead>Date</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {payments.map(payment => (
+                        <TableRow key={payment.id}>
+                          <TableCell className="font-medium">{payment.invoiceId}</TableCell>
+                          <TableCell>{payment.userId}</TableCell>
+                          <TableCell>{payment.description}</TableCell>
+                          <TableCell>₦{payment.amount?.toLocaleString()}</TableCell>
+                          <TableCell>{new Date(payment.createdAt).toLocaleDateString()}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
         </Tabs>
       </div>
     </DashboardLayout>

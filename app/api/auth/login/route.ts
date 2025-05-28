@@ -1,13 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { getDB } from "@/lib/lowdb"
+import { readBin } from "@/lib/jsonbin"
 import { createToken } from "@/lib/auth"
 
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json()
-    const db = await getDB()
 
-    const user = db.data!.users.find(u => u.email === email)
+    const data = await readBin()
+    const user = data.users?.find((u: any) => u.email === email)
 
     if (!user || user.password !== password) {
       return NextResponse.json({ error: "Invalid credentials" }, { status: 401 })
@@ -32,11 +32,12 @@ export async function POST(request: NextRequest) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
-      maxAge: 60 * 60 * 24,
+      maxAge: 60 * 60 * 24, // 24 hours
     })
 
     return response
   } catch (error) {
+    console.error("POST /auth/login error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

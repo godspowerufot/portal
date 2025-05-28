@@ -1,19 +1,14 @@
-// File: /pages/api/admin/payments.ts
-import type { NextApiRequest, NextApiResponse } from "next"
-import { initDB } from "@/lib/lowdb"
-import { dbInstance } from "@/lib/data-store"
+// File: /app/api/admin/payments/route.ts
+import { NextResponse } from "next/server"
+import { readBin } from "@/lib/jsonbin"
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "GET") {
-    return res.status(405).json({ message: "Method not allowed" })
-  }
-
+export async function GET() {
   try {
-    await initDB()
-    const payments = dbInstance.data?.payments || []
-    return res.status(200).json(payments)
+    const data = await readBin()
+    const payments = data.payments || []
+    return NextResponse.json(payments)
   } catch (error) {
     console.error("Error fetching payments:", error)
-    return res.status(500).json({ message: "Internal Server Error" })
+    return NextResponse.json({ message: "Internal Server Error" }, { status: 500 })
   }
 }

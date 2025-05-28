@@ -1,10 +1,7 @@
 // lib/data-store.ts
-import { Low } from 'lowdb'
-import { JSONFile } from 'lowdb/node'
+import { readBin, writeBin } from './jsonbin'
 import type { User, Course, Enrollment, Payment } from './types'
-import { initDB } from './lowdb'
 
-// Define the shape of your database
 type Data = {
   users: User[]
   courses: Course[]
@@ -12,71 +9,59 @@ type Data = {
   payments: Payment[]
 }
 
-const adapter = new JSONFile<Data>('db.json')
-const db = new Low<Data>(adapter, { users: [], courses: [], enrollments: [], payments: [] })
-db.read()
-db.data ||= { users: [], courses: [], enrollments: [], payments: [] }
-
-// Helper Functions
-export const findUserByEmail = async (email: string): Promise<User | undefined> => {
-  await db.read()
-  return db.data?.users.find((user) => user.email === email)
-}
-
-export const findUserById = async (id: string): Promise<User | undefined> => {
-  await db.read()
-  return db.data?.users.find((user) => user.id === id)
-}
-
-export const findCourseById = async (id: string): Promise<Course | undefined> => {
-  await db.read()
-  return db.data?.courses.find((course) => course.id === id)
-}
-
-export const getUserEnrollments = async (userId: string): Promise<Enrollment[]> => {
-  await db.read()
-  return db.data?.enrollments.filter((enrollment) => enrollment.userId === userId) || []
-}
-
-
-export const addUser = async (user: User): Promise<void> => {
-  await db.read()
-  db.data?.users.push(user)
-  await db.write()
-}
-
 export const generateId = (): string => {
   return Math.random().toString(36).substr(2, 9)
 }
 
+// Users
+export const findUserByEmail = async (email: string): Promise<User | undefined> => {
+  const data = await readBin()
+  return data.users.find((user: User) => user.email === email)
+}
+
+export const findUserById = async (id: string): Promise<User | undefined> => {
+  const data = await readBin()
+  return data.users.find((user: User) => user.id === id)
+}
+
+export const addUser = async (user: User): Promise<void> => {
+  const data = await readBin()
+  data.users.push(user)
+  await writeBin(data)
+}
+
+// Courses
+export const findCourseById = async (id: string): Promise<Course | undefined> => {
+  const data = await readBin()
+  return data.courses.find((course: Course) => course.id === id)
+}
+
 export const addCourse = async (course: Course): Promise<void> => {
-  await db.read()
-  db.data?.courses.push(course)
-  await db.write()
+  const data = await readBin()
+  data.courses.push(course)
+  await writeBin(data)
+}
+
+// Enrollments
+export const getUserEnrollments = async (userId: string): Promise<Enrollment[]> => {
+  const data = await readBin()
+  return data.enrollments.filter((enrollment: Enrollment) => enrollment.userId === userId)
 }
 
 export const addEnrollment = async (enrollment: Enrollment): Promise<void> => {
-  await db.read()
-  db.data?.enrollments.push(enrollment)
-  await db.write()
+  const data = await readBin()
+  data.enrollments.push(enrollment)
+  await writeBin(data)
 }
 
-
-// Always call initDB() before any DB access
-export async function getUserPayments(userId: string): Promise<Payment[]> {
-  await initDB()
-  return db.data!.payments.filter(p => p.userId === userId)
+// Payments
+export const getUserPayments = async (userId: string): Promise<Payment[]> => {
+  const data = await readBin()
+  return data.payments.filter((payment: Payment) => payment.userId === userId)
 }
 
-export async function savePayment(payment: any): Promise<void> {
-  await initDB()
-  db.data!.payments.push(payment)
-  await db.write()
+export const savePayment = async (payment: Payment): Promise<void> => {
+  const data = await readBin()
+  data.payments.push(payment)
+  await writeBin(data)
 }
-
-
-
-
-
-// Use this for tests or seed scripts
-export const dbInstance = db

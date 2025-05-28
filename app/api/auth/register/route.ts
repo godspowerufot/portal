@@ -1,16 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { generateId } from "@/lib/data-store"
+import { generateId, addUser, findUserByEmail } from "@/lib/data-store"
 import { createToken } from "@/lib/auth"
-import { getDB } from "@/lib/lowdb"
 import type { User } from "@/lib/types"
 
 export async function POST(request: NextRequest) {
   try {
     const { fullName, email, password, studentId, program, year } = await request.json()
 
-    const db = await getDB()
-
-    const existingUser = db.data!.users.find(user => user.email === email)
+    const existingUser = await findUserByEmail(email)
     if (existingUser) {
       return NextResponse.json({ error: "User already exists" }, { status: 400 })
     }
@@ -18,7 +15,7 @@ export async function POST(request: NextRequest) {
     const newUser: User = {
       id: generateId(),
       email,
-      password, // 🔒 Don't forget to hash in production!
+      password, // 🔒 Remember to hash in production!
       fullName,
       role: "student",
       studentId: studentId || `ST${Date.now()}`,
@@ -28,8 +25,7 @@ export async function POST(request: NextRequest) {
       updatedAt: new Date(),
     }
 
-    db.data!.users.push(newUser)
-    await db.write()
+    await addUser(newUser)
 
     const session = {
       userId: newUser.id,
