@@ -11,7 +11,7 @@ type Data = {
 }
 
 // Path to your JSON file
-const file = 'db.json'
+const file = '/data/db.json' // instead of process.cwd()
 
 // JSON file adapter
 const adapter = new JSONFile<Data>(file)
