@@ -1,0 +1,154 @@
+{
+  "users": [
+    {
+      "id": "ja85jjng6",
+      "email": "Ufotgodspower8@gmail.com",
+      "password": "Vital122?",
+      "fullName": "godspower",
+      "role": "student",
+      "studentId": "ak20/20/",
+      "program": "computer science",
+      "year": "2024",
+      "createdAt": "2025-05-25T23:16:15.880Z",
+      "updatedAt": "2025-05-25T23:16:15.880Z"
+    },
+    {
+      "id": "admin123",
+      "email": "admin@example.com",
+      "password": "Admin@123",
+      "fullName": "Test Admin",
+      "role": "admin",
+      "createdAt": "2025-05-26T00:00:00.000Z",
+      "updatedAt": "2025-05-26T00:00:00.000Z"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Medical-Surgical Nursing",
+      "id": "nurse601",
+      "instructor": "Dr. Olivia Moore",
+      "credits": 4,
+      "price": 400,
+      "level": "Intermediate",
+      "duration": "15 weeks",
+      "description": "Comprehensive care for adult patients with medical and surgical conditions.",
+      "status": "Active",
+      "students": 105
+    },
+    {
+      "title": "Obstetric and Gynecologic Nursing (Maternal-Child Health)",
+      "id": "nurse701",
+      "instructor": "Dr. Rachel Kim",
+      "credits": 4,
+      "price": 375,
+      "level": "Intermediate",
+      "duration": "13 weeks",
+      "description": "Focus on reproductive health, pregnancy, childbirth, and newborn care.",
+      "status": "Active",
+      "students": 89
+    },
+    {
+      "title": "Mental Health/Psychiatric Nursing",
+      "id": "nurse801",
+      "instructor": "Dr. Sarah Wilson",
+      "credits": 4,
+      "price": 375,
+      "level": "Advanced",
+      "duration": "14 weeks",
+      "description": "Nursing care and interventions for patients with mental health needs.",
+      "status": "Active",
+      "students": 73
+    },
+    {
+      "title": "Community and Public Health Nursing",
+      "id": "nurse901",
+      "instructor": "Dr. Emily Davis",
+      "credits": 3,
+      "price": 300,
+      "level": "Intermediate",
+      "duration": "12 weeks",
+      "description": "Public health strategies and community-based nursing care.",
+      "status": "Active",
+      "students": 98
+    },
+    {
+      "title": "Critical Care/ICU Nursing",
+      "id": "nurse1001",
+      "instructor": "Dr. James Carter",
+      "credits": 5,
+      "price": 450,
+      "level": "Advanced",
+      "duration": "16 weeks",
+      "description": "Advanced care techniques for critically ill patients in ICU settings.",
+      "status": "Active",
+      "students": 60
+    },
+    {
+      "title": "Geriatric/Gerontology Nursing",
+      "id": "nurse1101",
+      "instructor": "Dr. Linda Brown",
+      "credits": 3,
+      "price": 280,
+      "level": "Beginner",
+      "duration": "10 weeks",
+      "description": "Nursing care for elderly patients and aging populations.",
+      "status": "Active",
+      "students": 77
+    },
+    {
+      "title": "Emergency and Trauma Nursing",
+      "id": "nurse1201",
+      "instructor": "Dr. Kevin Adams",
+      "credits": 4,
+      "price": 420,
+      "level": "Advanced",
+      "duration": "14 weeks",
+      "description": "Immediate care and management of trauma and emergency cases.",
+      "status": "Active",
+      "students": 66
+    }
+  ],
+  "payments": [
+    {
+      "id": "5595fc5d-0b34-485b-b999-c9e70fa26306",
+      "userId": "ja85jjng6",
+      "courseId": "",
+      "amount": null,
+      "status": "Pending",
+      "description": "Cybersecurity Fundamentals - Summer 2023",
+      "invoiceId": "1748432936694",
+      "paymentDate": "2025-05-28T11:49:16.204Z"
+    },
+    {
+      "id": "0c5e128d-f4c6-4d7a-bb59-05a4328cab96",
+      "userId": "ja85jjng6",
+      "courseId": "",
+      "amount": 3290,
+      "status": "Pending",
+      "description": "Cybersecurity Fundamentals - Summer 2023",
+      "invoiceId": "1748433393293",
+      "paymentDate": "2025-05-28T11:57:56.626Z"
+    },
+    {
+      "id": "4c0cb2df-b39a-440e-bd57-a1b2919fdee4",
+      "userId": "ja85jjng6",
+      "courseId": "",
+      "amount": 5000,
+      "status": "Pending",
+      "description": "Form purchase for course: NURSING CARDIOVASCULAR DISEASES",
+      "invoiceId": "1748439631813",
+      "paymentDate": "2025-05-28T13:41:33.229Z"
+    },
+    {
+      "id": "623c8e25-ff5a-4655-8455-5a9e7c977a48",
+      "userId": "ja85jjng6",
+      "courseId": "",
+      "amount": 5000,
+      "status": "Pending",
+      "description": "Form purchase for course: NURSING CARDIOVASCULAR DISEASES",
+      "invoiceId": "1748439897157",
+      "paymentDate": "2025-05-28T13:45:25.688Z"
+    }
+  ],
+  "enrollments": []
+}
