@@ -8,46 +8,49 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-gray-200">
-        <div className="container mx-auto  px-4 py-4">
+      <header className="border-b bg-darkGreen text-white border-gray-200">
+        <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12  rounded-full flex items-center justify-center">
-   <Image
-                src="/nursing.jpg"
-                alt="Nursing students in clinical practice"
-                width={50}
-                height={50}
-                className="rounded-lg shadow-xl"
-              />              </div>
-              <div>
-                <h1 className="text-xl font-bold text-black">AICONS</h1>
-                <p className="text-sm text-gray-600">Akwa Ibom College of Nursing Sciences</p>
-              </div>
-            </div>
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link href="#home" className="text-black hover:text-green-600 transition-colors">
-                Home
-              </Link>
-              <Link href="#about" className="text-black hover:text-green-600 transition-colors">
-                About
-              </Link>
-              <Link href="#programs" className="text-black hover:text-green-600 transition-colors">
-                Programs
-              </Link>
-              <Link href="#contact" className="text-black hover:text-green-600 transition-colors">
-                Contact
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-3">
-              <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
-             <Link href={"/login"}>Login</Link>   
-              </Button>
-              <Button className="bg-darkGreen hover:bg-green-700 text-white">
-                
-                
-                <Link href={"/register"}> Register </Link></Button>
-            </div>
+        <div className="flex items-center space-x-3">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center">
+            <Image
+          src="/nursing.jpg"
+          alt="Nursing students in clinical practice"
+          width={50}
+          height={50}
+          className="rounded-lg shadow-xl"
+            />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-white">AICONS</h1>
+            <p className="text-sm text-gray-200">Akwa Ibom College of Nursing Sciences</p>
+          </div>
+        </div>
+        <nav className="hidden md:flex items-center space-x-6">
+          <Link href="#home" className="text-white hover:text-green-200 transition-colors">
+            Home
+          </Link>
+          <Link href="#about" className="text-white hover:text-green-200 transition-colors">
+            About
+          </Link>
+          <Link href="#programs" className="text-white hover:text-green-200 transition-colors">
+            Programs
+          </Link>
+          <Link href="#contact" className="text-white hover:text-green-200 transition-colors">
+            Contact
+          </Link>
+        </nav>
+        <div className="flex items-center space-x-3">
+          <Button
+            variant="outline"
+            className="border-white text-white bg-green-700 "
+          >
+            <Link href="/login" className="text-white ">Login</Link>
+          </Button>
+          <Button className="bg-white text-darkGreen hover:bg-green-200 hover:text-darkGreen font-semibold">
+            <Link href="/register" className="text-darkGreen hover:text-darkGreen">Register</Link>
+          </Button>
+        </div>
           </div>
         </div>
       </header>
@@ -55,10 +58,10 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section id="home" className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center justify-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
-                Excellence in <span className="text-green-600">Nursing Education</span>
+                Excellence in <span className="text-darkGreen">Nursing Education</span>
               </h1>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Akwa Ibom College of Nursing Sciences is committed to producing competent, compassionate, and skilled
@@ -68,17 +71,17 @@ export default function LandingPage() {
                 <Button size="lg" className="bg-darkGreen hover:bg-green-700 text-white">
                   Apply Now
                 </Button>
-                <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                <Button size="lg" variant="outline" className="border-darkGreen text-darkGreen hover:bg-green-50">
                   Learn More
                 </Button>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative ml-[18%]" >
               <Image
                 src="/nursing.jpg"
                 alt="Nursing students in clinical practice"
-                width={600}
-                height={500}
+                width={400}
+                height={400}
                 className="rounded-lg shadow-xl"
               />
             </div>
@@ -102,7 +105,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             <Card className="border-0 shadow-lg">
               <CardContent className="p-6 text-center">
-                <GraduationCap className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                <GraduationCap className="w-12 h-12 text-darkGreen mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-black mb-2">Quality Education</h3>
                 <p className="text-gray-600">
                   Comprehensive nursing programs designed to meet international standards and prepare students for
@@ -113,7 +116,7 @@ export default function LandingPage() {
 
             <Card className="border-0 shadow-lg">
               <CardContent className="p-6 text-center">
-                <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                <Users className="w-12 h-12 text-darkGreen mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-black mb-2">Expert Faculty</h3>
                 <p className="text-gray-600">
                   Experienced and qualified nursing educators committed to mentoring the next generation of healthcare
@@ -124,7 +127,7 @@ export default function LandingPage() {
 
             <Card className="border-0 shadow-lg">
               <CardContent className="p-6 text-center">
-                <Award className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                <Award className="w-12 h-12 text-darkGreen mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-black mb-2">Accreditation</h3>
                 <p className="text-gray-600">
                   Fully accredited by the Nursing and Midwifery Council of Nigeria (NMCN) ensuring recognized
@@ -139,7 +142,7 @@ export default function LandingPage() {
               <Image
                 src="https://myschoolgist.com/wp-content/uploads/2023/10/school-of-nursing.webp"
                 alt="Modern nursing laboratory"
-                width={500}
+                width={800}
                 height={400}
                 className="rounded-lg shadow-lg"
               />
@@ -216,7 +219,19 @@ Akwa Ibom State offers various nursing programs, including general nursing and m
           </div>
         </div>
       </section>
-
+<section className="py-16 bg-white flex flex-col items-center justify-center">
+  <h2 className="text-3xl md:text-4xl font-bold text-black mb-8 text-center">Provost</h2>
+  <div className="flex flex-col items-center">
+    <Image
+      src="/PROVOST.jpg"
+      alt="Provost"
+      width={300}
+      height={300}
+      className="rounded-full shadow-lg mb-4 object-cover"
+    />
+    {/* <h3 className="text-xl font-semibold text-black text-center">MRS.EKAETTE U AKAN</h3> */}
+  </div>
+</section>
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -229,7 +244,7 @@ Akwa Ibom State offers various nursing programs, including general nursing and m
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <MapPin className="w-8 h-8 text-green-600 mx-auto mb-3" />
+              <MapPin className="w-8 h-8 text-darkGreen mx-auto mb-3" />
               <h3 className="font-semibold text-black mb-2">Address</h3>
               <p className="text-gray-600">
                 Akwa Ibom State
@@ -239,13 +254,13 @@ Akwa Ibom State offers various nursing programs, including general nursing and m
             </div>
 
             <div className="text-center">
-              <Phone className="w-8 h-8 text-green-600 mx-auto mb-3" />
+              <Phone className="w-8 h-8 text-darkGreen mx-auto mb-3" />
               <h3 className="font-semibold text-black mb-2">Phone</h3>
               <p className="text-gray-600">+234 XXX XXX XXXX</p>
             </div>
 
             <div className="text-center">
-              <Mail className="w-8 h-8 text-green-600 mx-auto mb-3" />
+              <Mail className="w-8 h-8 text-darkGreen mx-auto mb-3" />
               <h3 className="font-semibold text-black mb-2">Email</h3>
               <p className="text-gray-600">info@aicons.edu.ng</p>
             </div>
@@ -341,7 +356,7 @@ Akwa Ibom State offers various nursing programs, including general nursing and m
                 <Button className="w-full bg-darkGreen hover:bg-green-700 text-white">Apply Now</Button>
                 <Button
                   variant="outline"
-                  className="w-full border-green-600 text-green-400 hover:bg-darkGreen hover:text-white"
+                  className="w-full border-darkGreen text-green-400 hover:bg-darkGreen hover:text-white"
                 >
                   Student Portal
                 </Button>
