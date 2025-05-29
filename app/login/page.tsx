@@ -87,7 +87,7 @@ export default function LoginPage() {
             </div>
             <div className="text-sm text-gray-600 bg-gray-50 p-3 rounded">
               <p className="font-medium mb-1">Demo Accounts:</p>
-              <p>Admin: admin@example.com / admin123</p>
+              <p>Admin: admin@example.com/Admin@123</p>
               <p>Student: john.doe@example.com / student123</p>
             </div>
           </CardContent>
