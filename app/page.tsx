@@ -222,13 +222,15 @@ Akwa Ibom State offers various nursing programs, including general nursing and m
 <section className="py-16 bg-white flex flex-col items-center justify-center">
   <h2 className="text-3xl md:text-4xl font-bold text-black mb-8 text-center">Provost</h2>
   <div className="flex flex-col items-center">
-    <Image
-      src="/PROVOST.jpg"
-      alt="Provost"
-      width={300}
-      height={300}
-      className="rounded-full shadow-lg mb-4 object-cover"
-    />
+    <div className="w-72 h-72 rounded-full overflow-hidden shadow-lg mb-4 flex items-center justify-center">
+      <Image
+        src="/PROVOST.jpg"
+        alt="Provost"
+        width={300}
+        height={300}
+        className="object-cover w-full h-full"
+      />
+    </div>
     {/* <h3 className="text-xl font-semibold text-black text-center">MRS.EKAETTE U AKAN</h3> */}
   </div>
 </section>
