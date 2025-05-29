@@ -207,7 +207,7 @@ export default function AdminCoursesPage() {
                       <TableCell>{course.title}</TableCell>
                       <TableCell>{course.instructor}</TableCell>
                       <TableCell>{course.credits}</TableCell>
-                      <TableCell>${course.price}</TableCell>
+                      <TableCell>N{course.price}</TableCell>
                       <TableCell>{course.students}</TableCell>
                       <TableCell>
                         <Badge
