@@ -42,7 +42,6 @@ export default function LandingPage() {
         </nav>
         <div className="flex items-center space-x-3">
           <Button
-            variant="outline"
             className="border-white text-white bg-green-700 "
           >
             <Link href="/login" className="text-white ">Login</Link>

@@ -17,6 +17,7 @@ interface Student {
 }
 
 interface Payment {
+  paymentDate: string | number | Date
   id: string
   userId: string
   courseId: string
@@ -164,7 +165,7 @@ export default function AdminDashboardPage() {
                           <TableCell>{payment.userId}</TableCell>
                           <TableCell>{payment.description}</TableCell>
                           <TableCell>₦{payment.amount?.toLocaleString()}</TableCell>
-                          <TableCell>{new Date(payment.createdAt).toLocaleDateString()}</TableCell>
+                          <TableCell>{new Date(payment.paymentDate).toLocaleDateString()}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
