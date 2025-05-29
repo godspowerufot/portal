@@ -13,8 +13,13 @@ export default function LandingPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12  rounded-full flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
-              </div>
+   <Image
+                src="/nursing.jpg"
+                alt="Nursing students in clinical practice"
+                width={50}
+                height={50}
+                className="rounded-lg shadow-xl"
+              />              </div>
               <div>
                 <h1 className="text-xl font-bold text-black">AICONS</h1>
                 <p className="text-sm text-gray-600">Akwa Ibom College of Nursing Sciences</p>
@@ -132,7 +137,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/placeholder.svg?height=400&width=500"
+                src="https://myschoolgist.com/wp-content/uploads/2023/10/school-of-nursing.webp"
                 alt="Modern nursing laboratory"
                 width={500}
                 height={400}
@@ -176,7 +181,7 @@ Akwa Ibom State offers various nursing programs, including general nursing and m
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
                 <Image
-                  src="/placeholder.svg?height=200&width=400"
+                  src="https://myschoolgist.com/wp-content/uploads/2022/07/School-of-Nursing.avif"
                   alt="Basic Nursing Program"
                   width={400}
                   height={200}
@@ -194,7 +199,7 @@ Akwa Ibom State offers various nursing programs, including general nursing and m
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
                 <Image
-                  src="/placeholder.svg?height=200&width=400"
+                  src="schoolnurse.jpeg"
                   alt="Post-Basic Nursing Program"
                   width={400}
                   height={200}
@@ -261,8 +266,13 @@ Akwa Ibom State offers various nursing programs, including general nursing and m
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-darkGreen rounded-full flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-white" />
-                </div>
+   <Image
+                src="/nursing.jpg"
+                alt="Nursing students in clinical practice"
+                width={50}
+                height={50}
+                className="rounded-lg shadow-xl"
+              />                </div>
                 <div>
                   <h3 className="font-bold">AICONS</h3>
                   <p className="text-sm text-gray-400">Excellence in Nursing</p>
